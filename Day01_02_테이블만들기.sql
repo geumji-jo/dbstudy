@@ -11,7 +11,7 @@
 /*
     오라클의 데이터 타입
     1. CHAR(size)    : 고정 길이 문자 타입(size : 1 ~ 2000바이트)
-    2. VARCHAR(size) : 가변 길이 문자 타입(size : 1 ~ 4000바이트)
+    2. VARCHAR2(size) : 가변 길이 문자 타입(size : 1 ~ 4000바이트)
     3. DATE          : 날짜/시간 타입
     4. TIMESTAMP     : 날짜/시간 타입(좀 더 정밀)
     5. NUMBER(p,s)   : 정밀도(p), 스케일(s)로 표현하는 숫자 타입
@@ -24,3 +24,25 @@
             (4) NUMBER(2,2) : 1미만의 소수 2자리인 실수(0.15) - 정수부의 0은 유효자리가 아니다.0은 유효한 숫자로 보지 않음
 */
 
+/*
+    제약조건(Constraint)
+    1. 널
+        1) NULL 또는 생략
+        2) NOT NULL
+    2. 중복 데이터 방지
+        UNIQUE 
+    3. 값의 제한
+        CHECK
+*/
+
+
+-- 예시 테이블
+DROP TABLE PRODUCT;
+CREATE TABLE PRODUCT(
+    CODE         VARCHAR2(2 BYTE)  NOT NULL UNIQUE, 
+    MODEL        VARCHAR2(10 BYTE) NULL
+    CATEGORY     VARCHAR2(5 BYTE)  CHECK(CATEGORY = 'MAIN' OR CATEGORY = 'SUB'), -- CHECK(CATEGORY IN('MAIN, 'SUB'))
+    PRICE        NUMBER            CHECK(PRICE >= 0),
+    AMOUNT       NUMBER(2)         CHECK(AMOUNT >= 0 AND AMOUNT <= 100),         -- CHECK(AMOUNT BETWEEN 0 AND 100)
+    MANUFACTURED DATE
+);    
