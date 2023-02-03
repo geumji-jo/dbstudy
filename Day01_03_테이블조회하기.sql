@@ -106,7 +106,7 @@ AI     AI
 APP    AP
 APPLE  AM
 */
---   2) 연산자
+--    2) 연산자
 --      (1) LIKE     : WILD CARD를 포함한다.
 --      (2) NOT LOKE : WILDE CARD를 포함하지 않는다.
 SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO
