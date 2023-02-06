@@ -1,8 +1,20 @@
-
-
+/*
+    DDL
+    1. Data Definition language
+    2. 데이터 정의어
+    3. 데이터베이스 객체( USER,TABLE,SEQUENCE, VIEW, INDEX 등)를 생성/수정.삭제하는 언어이다.
+    4. 완료된 작업을 취소할 수 없다.(COMMIT할 필요가 없다.ROLLBACK을 할 수 없다.)
+    5. 종류
+        1) CREATE : 생성
+        2) ALTER  : 수정
+        3) DROP   : 삭제
+ */
+--테이블 삭제
 DROP TABLE CUSTOMER_TBL;
 DROP TABLE BANK_TBL;
 
+
+--BANK_TBL 테이블 생성
 CREATE TABLE BANK_TBL (
 
     BANK_CODE  VARCHAR2(20 BYTE) NOT NULL,
@@ -10,7 +22,7 @@ CREATE TABLE BANK_TBL (
     CONSTRAINT PK_BANK PRIMARY KEY (BANK_CODE)
 );
 
-
+--CUSTOMER_TBL 테이블 생성
 CREATE TABLE CUSTOMER_TBL (
 
     NO        NUMBER            NOT NULL,
