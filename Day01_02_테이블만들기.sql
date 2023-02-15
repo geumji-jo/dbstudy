@@ -10,11 +10,11 @@
 
 /*
     오라클의 데이터 타입
-    1. CHAR(size)    : 고정 길이 문자 타입(size : 1 ~ 2000바이트)
+    1. CHAR(size)     : 고정 길이 문자 타입(size : 1 ~ 2000바이트)
     2. VARCHAR2(size) : 가변 길이 문자 타입(size : 1 ~ 4000바이트)
-    3. DATE          : 날짜/시간 타입
-    4. TIMESTAMP     : 날짜/시간 타입(좀 더 정밀)
-    5. NUMBER(p,s)   : 정밀도(p), 스케일(s)로 표현하는 숫자 타입
+    3. DATE           : 날짜/시간 타입
+    4. TIMESTAMP      : 날짜/시간 타입(좀 더 정밀)
+    5. NUMBER(p,s)    : 정밀도(p), 스케일(s)로 표현하는 숫자 타입
         1) 정밀도 : 정수부와 소수부를 모두 포함하는 전체 유효 숫자가 몇 개인가?
         2) 스케일 : 소수부의 전체 유효 숫자가 몇 개인가?
         예시)
@@ -40,7 +40,7 @@
 DROP TABLE PRODUCT;
 CREATE TABLE PRODUCT(
     CODE         VARCHAR2(2 BYTE)  NOT NULL UNIQUE, 
-    MODEL        VARCHAR2(10 BYTE) NULL
+    MODEL        VARCHAR2(10 BYTE) NULL,
     CATEGORY     VARCHAR2(5 BYTE)  CHECK(CATEGORY = 'MAIN' OR CATEGORY = 'SUB'), -- CHECK(CATEGORY IN('MAIN, 'SUB'))
     PRICE        NUMBER            CHECK(PRICE >= 0),
     AMOUNT       NUMBER(2)         CHECK(AMOUNT >= 0 AND AMOUNT <= 100),         -- CHECK(AMOUNT BETWEEN 0 AND 100)
